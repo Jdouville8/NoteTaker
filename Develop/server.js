@@ -1,4 +1,4 @@
-// Dependencies
+// requiring modules
 const express = require("express");
 
 // Sets up access to express object
@@ -10,11 +10,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-require("./apiRoutes.js")(app);
+// routes for the html navigation and data read/writing
 require("./htmlRoutes")(app);
+require("./apiRoutes.js")(app);
 
 
-// Starts the server to begin listening
+// Server listener for port 3000
 app.listen(PORT, () => {
     console.log("App listening on http://localhost: " + PORT);
 });
