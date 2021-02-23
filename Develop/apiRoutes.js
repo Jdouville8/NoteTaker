@@ -8,7 +8,7 @@ function retrieveNotes() {
 
     // Gives each note a unique ID key value pair
     for (let i = 0; i < noteData.length; i++) {
-        noteData[i].id = '' + i;
+        noteData[i].id = `${i}`;
     }
 
     return noteData;
@@ -24,7 +24,7 @@ module.exports = function (app) {
     });
 
     // retrieves new notes data from page 
-    app.post("/api/notes", (req, res) => {
+    app.post("/api/notes", function (req, res) {
         notesData.push(req.body);
         fs.writeFileSync('./db/db.json', JSON.stringify(notesData), 'utf8');
         res.json(true);
