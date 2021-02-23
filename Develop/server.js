@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // routes for the html navigation and data read/writing
+// api routes has to be first or code will not work (probably because files need to be read and written before html is called)
 require("./apiRoutes.js")(app);
 require("./htmlRoutes")(app);
 

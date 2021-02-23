@@ -7,6 +7,7 @@ function retrieveNotes() {
     let noteData = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
     // Gives each note a unique ID key value pair
+    // ID is written once a new note is created, the most recently created note will not contain an ID
     for (let i = 0; i < noteData.length; i++) {
         noteData[i].id = `${i}`;
     }
